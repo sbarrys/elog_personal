@@ -1,4 +1,4 @@
-package com.kry.elog_personal.repository.query;
+package com.kry.elog_personal.repositories.query;
 
 public class BoardRepositoryCustomImpl {
 }
