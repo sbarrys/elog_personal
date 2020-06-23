@@ -1,4 +1,4 @@
-package com.kry.elog_personal.repository;
+package com.kry.elog_personal.repositories;
 
 import com.kry.elog_personal.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;

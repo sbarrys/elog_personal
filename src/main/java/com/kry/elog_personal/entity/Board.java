@@ -3,41 +3,34 @@ package com.kry.elog_personal.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kry.elog_personal.common.PostType;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-
-@Entity(name ="Board")
+@DynamicInsert
+@DynamicUpdate
+@Entity
 @AllArgsConstructor
+@Data
 @NoArgsConstructor
 public class Board extends BaseEntity{
     @Id
-    @Column(name="board_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)//기본 키 생성을 데이터베이스에 위임한다
     private Long id;
-
     private String title;
-
     private String content;
-
     private PostType postType;
-
     @ManyToOne
-    @JoinColumn(name = "user_id")
     @JsonIgnore
+    @JoinColumn(name="user_id",nullable = false,updatable=false)
     private User user;
-
-
     //방문자 개수
-    @Column(columnDefinition = "BIGINT default 0" )
+    @Column(name="cnt_visitor",columnDefinition = "BIGINT default 0" )
     private Long cntVisitor;
-
-
     //누적 방문자 개수
-    @Column(columnDefinition = "BIGINT default 0" )
+    @Column(name="cnt_accu_visitor",columnDefinition = "BIGINT default 0" )
     private Long cntAccuVisitor;
-
-
-
 }

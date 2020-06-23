@@ -20,3 +20,10 @@ spring:
     password:
     hikari:
       jdbc-url: jdbc:h2:mem:elog_personal;MODE=MySQL;DB_CLOSE_ON_EXIT=FALSE
+
+logging:
+  level:
+    root: info
+    com.kty.elog_personal.repository.*: debug
+    com.kty.elog_personal.service.*: debug
+    com.kty.elog_personal.api.*: debug
