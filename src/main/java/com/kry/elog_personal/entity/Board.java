@@ -23,14 +23,16 @@ public class Board extends BaseEntity{
     private String title;
     private String content;
     private PostType postType;
-    @ManyToOne
-    @JsonIgnore
-    @JoinColumn(name="user_id",nullable = false,updatable=false)
-    private User user;
     //방문자 개수
     @Column(name="cnt_visitor",columnDefinition = "BIGINT default 0" )
     private Long cntVisitor;
     //누적 방문자 개수
     @Column(name="cnt_accu_visitor",columnDefinition = "BIGINT default 0" )
     private Long cntAccuVisitor;
+
+    @ManyToOne
+//    @JsonIgnore
+    @JoinColumn(name="user_id",nullable = false,updatable=false)
+    private User user;
+
 }

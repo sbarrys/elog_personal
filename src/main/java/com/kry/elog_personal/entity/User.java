@@ -1,8 +1,10 @@
 package com.kry.elog_personal.entity;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.BatchSize;
+import org.springframework.util.Assert;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,4 +19,12 @@ public class User {
     private String name;
     @Column (length = 20, nullable = false)
     private String password;
+
+    @Builder
+    public User(Long id,String name, String password) {
+        Assert.hasText(name, "name must not be empty");
+        this.id= id;
+        this.name = name;
+        this.password = password;
+    }
 }
