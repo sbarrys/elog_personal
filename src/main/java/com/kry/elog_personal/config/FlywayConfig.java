@@ -24,4 +24,6 @@ public class FlywayConfig {
         flyway = Flyway.configure().dataSource(dataSource).load();
         flyway.migrate();
     }
+
+
 }

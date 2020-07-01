@@ -68,8 +68,6 @@ public class BoardController {
     //result 객체 이용해서 에러 발생시 상황에 맞는 에러 메세지 전달.
     @DeleteMapping(value="/boards/{id}")
     public void delete(@PathVariable Long id){
-//        if(로그인안되어있음) {return 실패}
-//        if(로그인 유저와 게시글 작성자 동일){ return 실패 }
         boardService.deleteById(id);
 
     }

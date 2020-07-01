@@ -29,3 +29,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+###spring security login
+application-oauth.properties
+
