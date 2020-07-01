@@ -11,6 +11,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 import request from 'request'
 
 export default {
+
   name: 'Home',
   components: {
     HelloWorld

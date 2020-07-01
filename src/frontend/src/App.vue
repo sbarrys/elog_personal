@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
+      <p>여기는 front-end</p>
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/BoardList">BoardList</router-link>
     </div>
     <router-view/>
   </div>

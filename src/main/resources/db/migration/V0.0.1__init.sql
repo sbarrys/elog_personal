@@ -27,3 +27,4 @@ CREATE TABLE board(
 INSERT INTO USER(name,email) values ('kim tae yun','sbarrys@ajou.ac.kr') , ('hong','hong@google.com');
 
 INSERT INTO BOARD(title,content,post_Type,user_id,cnt_accu_visitor,cnt_visitor) values('hello','content',1,1,0,0);
+INSERT INTO BOARD(title,content,post_Type,user_id,cnt_accu_visitor,cnt_visitor) values('222','222',1,1,0,0);
