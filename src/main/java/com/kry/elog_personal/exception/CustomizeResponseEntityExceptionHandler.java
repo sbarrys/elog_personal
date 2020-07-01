@@ -1,8 +1,10 @@
 package com.kry.elog_personal.exception;
 
 import org.omg.CosNaming.NamingContextPackage.NotFound;
+import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,5 +33,12 @@ public class CustomizeResponseEntityExceptionHandler extends ResponseEntityExcep
         return new ResponseEntity<>("dkssud", HttpStatus.NOT_FOUND);//서버에러
     }
 
+    @ExceptionHandler(InvalidDataAccessApiUsageException.class)
+    public final ResponseEntity<Object> handleUserInvalidDataAccessApiUsageExceptionExceptions(Exception e,/*어디서발생했는지*/WebRequest request){
+        ExceptionResponse exceptionResponse=
+                new ExceptionResponse(new Date(), e.toString(),request.getDescription(false));
+
+        return new ResponseEntity<>( exceptionResponse.toString(),HttpStatus.NOT_FOUND);//서버에러
+    }
 }
 

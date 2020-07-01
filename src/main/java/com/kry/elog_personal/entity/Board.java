@@ -10,6 +10,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+//null을 입력시 null이 들어가지 않고 default 로 들어가게 해준다.
 @DynamicInsert
 @DynamicUpdate
 @Entity
