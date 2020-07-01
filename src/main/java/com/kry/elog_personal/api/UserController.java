@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@RestController("/api")
 public class UserController {
     @Autowired
     UserRepository userRepository;

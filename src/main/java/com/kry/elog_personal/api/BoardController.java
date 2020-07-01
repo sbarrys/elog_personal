@@ -27,7 +27,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@RestController("/api")
 public class BoardController {
     private BoardService boardService;
     public BoardController(BoardService boardService){
