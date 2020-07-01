@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(path="/api")
 public class BoardController {
     private BoardService boardService;
     public BoardController(BoardService boardService){

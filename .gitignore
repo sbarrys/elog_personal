@@ -34,3 +34,7 @@ build/
 ###spring security login
 application-oauth.properties
 
+
+src/node_modules/
+
+node_modules/
