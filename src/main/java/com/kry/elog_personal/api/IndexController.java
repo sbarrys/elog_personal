@@ -17,6 +17,11 @@ import javax.servlet.http.HttpSession;
 @RequestMapping(path="/api")
 public class IndexController {
     private final HttpSession httpSession;
+    @GetMapping(value={"", "/", "/error", "/*"})
+    public String index() {
+        return "index";
+    }
+
 
     @GetMapping("/")
     public String index(Model model) throws Exception {
@@ -31,7 +36,7 @@ public class IndexController {
             model.addAttribute("userEmail", user.getEmail());
             model.addAttribute("userPicture", user.getPicture());
         }
-        return "index1";
+        return "index";
     }
     @GetMapping("/home")
     public String home(Model model) {

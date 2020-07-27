@@ -2,3 +2,11 @@ spring:
   profiles:
     active: local
     include: oauth # 스프링 oauth2 기본 셋팅#
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations:
+      - classpath:/static/
+    add-mappings: true
+  mustache:
+    enabled: false
