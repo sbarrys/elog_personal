@@ -14,16 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpSession;
 @RequiredArgsConstructor
 @Controller
-@RequestMapping(path="/api")
 public class IndexController {
     private final HttpSession httpSession;
     @GetMapping(value={"", "/", "/error", "/*"})
     public String index() {
-        return "index";
-    }
+        return "redirect:http://localhost:4200";}
 
 
-    @GetMapping("/")
+
+        @GetMapping("/")
     public String index(Model model) throws Exception {
         SessionUser user= (SessionUser) httpSession.getAttribute("user");
 

@@ -53,11 +53,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     //ouath2로그인 설정 진입
                     .oauth2Login()
-                    //oauth2 로그인 성공 이후 사용자 정보 가져올떄의 설정
-                    .userInfoEndpoint()
+//                    .redirectionEndpoint().baseUri("http://localhost:4200").and()
+                //oauth2 로그인 성공 이후 사용자 정보 가져올떄의 설정
+                        .userInfoEndpoint()
                     //소셜 로그인 성공 시 후속 조치를 진행할 UserService 인터페이스의 구현체를 등록합니다.
                     //리소스 서버(즉, 소셜 서비스들)에서 사용자 정보를 가져온 상태에서 추가로 진행하고자 하는 기능을 명시할 수 있습니다.
-                    .userService(customOAuth2UserService);
+                            .userService(customOAuth2UserService);
 
     }
 
