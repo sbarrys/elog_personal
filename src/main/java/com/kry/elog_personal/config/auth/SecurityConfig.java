@@ -24,18 +24,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     //URL별 권한 관리를 설정하는 옵션의 시작
                     //authorizeRequests가 선언되어야만 antMatchers 옵션 사용가능
-                    .antMatcher("/**").authorizeRequests()
+                .antMatcher("/**").authorizeRequests()
                     //권한 관리 대상 지정
                     //"/"등 지정된 URL들은 permitAll() 옵션을 통해 전체 열람 가능
-                    .antMatchers("/api", "/css/**", "/images/**",
-                          "/js/**", "/h2-console/**","/error/**").permitAll()
-                    ///board/로 시작하는 API는 USER라는 롤을 가진 사람만 가능
-                    .antMatchers("/home/**").hasRole(Role.USER.name())
-                    //나머지 URL 들은 인가된 사용자들이 가능(로그인한사람들)
+                .antMatchers("/api", "/css/**", "/images/**",
+                         "/js/**", "/h2-console/**","/error/**").permitAll()
+                .antMatchers("/home/**").hasRole(Role.USER.name())
                 .antMatchers("/boards/**").permitAll()/*hasRole(Role.USER.name())*/
                 .antMatchers("/index/**").permitAll()
-                    .antMatchers("/favicon.ico").permitAll()
-                    .anyRequest().anonymous()
+                .antMatchers("/favicon.ico").permitAll()
+
+    .anyRequest().anonymous()
 
                 .and().csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint())
