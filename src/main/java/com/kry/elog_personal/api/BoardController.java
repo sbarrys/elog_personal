@@ -1,32 +1,16 @@
 package com.kry.elog_personal.api;
 
 import com.kry.elog_personal.entity.Board;
-import com.kry.elog_personal.entity.User;
-import com.kry.elog_personal.repositories.BoardRepository;
-import com.kry.elog_personal.repositories.UserRepository;
 import com.kry.elog_personal.service.BoardService;
-import com.sun.net.httpserver.Authenticator;
-import javassist.NotFoundException;
-import org.apache.logging.log4j.message.Message;
-import org.apache.logging.log4j.message.StringFormattedMessage;
 import org.omg.CosNaming.NamingContextPackage.NotFound;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import sun.misc.MessageUtils;
-
-import javax.naming.spi.DirStateFactory;
-import javax.swing.text.html.parser.Entity;
-import javax.xml.transform.Result;
-import javax.xml.ws.Response;
 import java.net.URI;
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Optional;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(path="/api")
 public class BoardController {
@@ -34,18 +18,21 @@ public class BoardController {
     public BoardController(BoardService boardService){
         this.boardService= boardService;
     }
-     @GetMapping("/boards")
-    public List<Board> findAll() throws Exception {
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/boards")
+    public ResponseEntity<?> findAll() throws Exception {
+
          List<Board> listBoard = boardService.findAllBoards();
+
          if(listBoard.isEmpty()){
              throw new NotFound();
          }
          else {
-             return listBoard;
+            return ResponseEntity.status(HttpStatus.OK).body(listBoard);
          }
      }
     @GetMapping("/boards/{id}")
-    public HttpEntity<Board> findById(@PathVariable Long id) {
+    public ResponseEntity<Board> findById(@PathVariable Long id) {
          Optional<Board> optBoard= boardService.findById(id);
         if (optBoard.isPresent()) {
             return ResponseEntity.ok(optBoard.get());

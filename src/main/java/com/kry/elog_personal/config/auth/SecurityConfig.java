@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     ///board/로 시작하는 API는 USER라는 롤을 가진 사람만 가능
                     .antMatchers("/home/**").hasRole(Role.USER.name())
                     //나머지 URL 들은 인가된 사용자들이 가능(로그인한사람들)
-                .antMatchers("/boards/**").hasRole(Role.USER.name())
+                .antMatchers("/boards/**").permitAll()/*hasRole(Role.USER.name())*/
                 .antMatchers("/index/**").permitAll()
                     .antMatchers("/favicon.ico").permitAll()
                     .anyRequest().anonymous()
