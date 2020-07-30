@@ -22,7 +22,6 @@ public class BoardService {
         this.userRepository= userRepository;
 
     }
-    @Transactional
     public List<Board> findAllBoards() throws Exception {
 
         List<Board> boardList= boardRepository.findAll();

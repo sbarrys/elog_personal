@@ -1,4 +1,4 @@
-package com.kry.elog_personal.config.auth;
+package com.kry.elog_personal.config.auth.dto;
 
 import com.kry.elog_personal.common.Role;
 import com.kry.elog_personal.entity.User;
@@ -6,8 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 
 import java.util.Map;
-//OAuth2UserService를 통해 가져온 OAuth2User 의 Attribute를 담는 클래스
-//이것을 DB의 유저와 비교해서 수정 및 저장해줄것 ( 로그인과 동시에 회원가입 )
+
 @Getter
 public class OAuthAttributes {
     private Map<String, Object> attributes;
@@ -26,7 +25,7 @@ public class OAuthAttributes {
         this.email = email;
         this.picture = picture;
     }
-// OAuth2User에서 반환하는 사용자 정보는 Map이기 때문에 값 하나하나를 변환해야한다.
+
     public static OAuthAttributes of(String registrationId,
                                      String userNameAttributeName,
                                      Map<String, Object> attributes) {
@@ -44,7 +43,8 @@ public class OAuthAttributes {
                 .build();
     }
 
-    //가입할떄의기본권한은 USER
+
+    // 처음 가입시 사용될 것이다.
     public User toEntity() {
         return User.builder()
                 .name(name)

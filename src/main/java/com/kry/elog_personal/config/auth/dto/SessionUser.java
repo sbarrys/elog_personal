@@ -1,13 +1,14 @@
-package com.kry.elog_personal.config.auth;
+package com.kry.elog_personal.config.auth.dto;
+
 
 import com.kry.elog_personal.entity.User;
 import lombok.Getter;
 
 import java.io.Serializable;
-//왜 User 클래스 사용 안하나요?
 
-//엔티티에는 직렬화 사용 금지
-//엔티티는 다른 엔티티와 다른 관계가 생길수도 있으니 새로운 "인증된 사용자 정보"를 담는 클래스를 생성한것
+//세션에 저장할때 직렬화된 객체가 필요한데,
+// Entity User객체를 직접 직렬화해주면 안된다.  @OneToMany 등 자식들까지 직렬화가 되어 성능문제가 생길수잇음.
+// 따라서 비슷한 모양의 객체를 생성하고 직렬화해준다.
 @Getter
 public class SessionUser implements Serializable {
     private String name;

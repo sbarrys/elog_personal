@@ -10,7 +10,7 @@ import java.net.URI;
 import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Optional;
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 @RestController
 @RequestMapping(path="/api")
 public class BoardController {
@@ -18,7 +18,6 @@ public class BoardController {
     public BoardController(BoardService boardService){
         this.boardService= boardService;
     }
-    @CrossOrigin(origins = "http://localhost:4200")
     @GetMapping("/boards")
     public ResponseEntity<?> findAll() throws Exception {
 
@@ -28,6 +27,7 @@ public class BoardController {
              throw new NotFound();
          }
          else {
+
             return ResponseEntity.status(HttpStatus.OK).body(listBoard);
          }
      }
