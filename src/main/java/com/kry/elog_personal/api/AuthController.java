@@ -48,7 +48,9 @@ public class AuthController {
             user.setName(jsonObject.get("name").toString());
             user.setEmail(jsonObject.get("email").toString());
             user.setPicture(jsonObject.get("picture").toString());
-            user.setSub(Long.parseLong(( jsonObject.get("sub").toString()));
+            String sub= jsonObject.get("sub").toString();
+            int sublen= sub.length();
+            user.setSub(Long.parseLong( jsonObject.get("sub").toString().substring(1,sublen)));
         } catch (ParseException e) {
 
         }
