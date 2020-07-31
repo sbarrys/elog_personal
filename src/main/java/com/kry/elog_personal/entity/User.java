@@ -21,6 +21,8 @@ import java.util.List;
 public class User {
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique=true)
+    private Long sub;
     @Column (length = 10, nullable = false)
     private String name;
 //    @Column (length = 20)
