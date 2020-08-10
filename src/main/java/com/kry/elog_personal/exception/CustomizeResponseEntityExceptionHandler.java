@@ -30,7 +30,7 @@ public class CustomizeResponseEntityExceptionHandler extends ResponseEntityExcep
         ExceptionResponse exceptionResponse=
                 new ExceptionResponse(new Date(), e.getMessage(),request.getDescription(false));
 
-        return new ResponseEntity<>("dkssud", HttpStatus.NOT_FOUND);//서버에러
+        return new ResponseEntity<>("User Not Found", HttpStatus.NOT_FOUND);//서버에러
     }
 
     @ExceptionHandler(InvalidDataAccessApiUsageException.class)

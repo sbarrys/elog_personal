@@ -13,7 +13,7 @@ CREATE TABLE board(
     `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT
     , `title` TEXT NOT NULL
     , `content` TEXT NOT NULL
-    , `post_type` TINYINT NOT NULL default 2
+    , `post_type` TINYINT NOT NULL default 1
     , `cnt_accu_visitor` BIGINT(20) default 0
     , `cnt_visitor` BIGINT(20) default 0
     , `user_id` BIGINT(20) NOT NULL
@@ -25,11 +25,11 @@ CREATE TABLE board(
 
 INSERT INTO USER(name,email) values ('kim tae yun','sbarrys@ajou.ac.kr') , ('hong','hong@google.com');
 
-INSERT INTO BOARD(title,content,post_Type,user_id,cnt_accu_visitor,cnt_visitor) values('hello',' 2212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222222 ',1,1,0,0);
-INSERT INTO BOARD(title,content,post_Type,user_id,cnt_accu_visitor,cnt_visitor) values('222',' 2212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222222 ',1,1,0,0);
+INSERT INTO BOARD(title,content,post_type,user_id,cnt_accu_visitor,cnt_visitor) values('hello',' 2212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222222 ',1,1,0,0);
+INSERT INTO BOARD(title,content,post_type,user_id,cnt_accu_visitor,cnt_visitor) values('222',' 2212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222221222222222222212222222222222122222222222222 ',1,1,0,0);
 
-INSERT INTO BOARD(title,content,post_Type,user_id,cnt_accu_visitor,cnt_visitor) values('333','content3',1,1,0,0);
-INSERT INTO BOARD(title,content,post_Type,user_id,cnt_accu_visitor,cnt_visitor) values('444','content4',1,1,0,0);
+INSERT INTO BOARD(title,content,post_type,user_id,cnt_accu_visitor,cnt_visitor) values('333','content3',1,1,0,0);
+INSERT INTO BOARD(title,content,post_type,user_id,cnt_accu_visitor,cnt_visitor) values('444','content4',1,1,0,0);
 
-INSERT INTO BOARD(title,content,post_Type,user_id,cnt_accu_visitor,cnt_visitor) values('555','content5',1,1,0,0);
-INSERT INTO BOARD(title,content,post_Type,user_id,cnt_accu_visitor,cnt_visitor) values('666','content6',1,1,0,0);
+INSERT INTO BOARD(title,content,post_type,user_id,cnt_accu_visitor,cnt_visitor) values('555','content5',1,1,0,0);
+INSERT INTO BOARD(title,content,post_type,user_id,cnt_accu_visitor,cnt_visitor) values('666','content6',1,2,0,0);
