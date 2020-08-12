@@ -34,6 +34,12 @@ public class BoardService {
         }
         return boardList;
     }
+    public Long update(Board board){
+        Board savedBoard=boardRepository.save(board);
+        Long savedId =savedBoard.getId();
+        return savedId;
+
+    }
     public Long save(Board board){
 
         Board savedBoard=boardRepository.save(board);

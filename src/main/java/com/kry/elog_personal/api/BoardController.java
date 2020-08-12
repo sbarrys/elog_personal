@@ -84,6 +84,28 @@ public class BoardController {
         boardService.deleteById(id);
 
     }
+
+    @PutMapping(value="/boards/{id}")
+    public HttpEntity<Board> update(@RequestBody BoardDto boardDto,@PathVariable Long id) throws Exception{
+        User user= userService.findByEmail(boardDto.getWriter()).get();
+        logger.debug("1111",user);
+        if(user==null){
+            throw new Exception("수정 권한이 없습니다.");
+        }else if( boardDto.getWriter()==null){
+            throw new NotFound();
+        }
+        else{
+            Board board= boardService.findById(id).get();
+            board.setId(id);
+            board.setUser(user);
+            board.setContent(boardDto.getContent());
+            board.setTitle(boardDto.getTitle());
+            boardService.update(board);
+            return ResponseEntity.status(200).body(board);
+
+        }
+    }
+
 }
 
 
